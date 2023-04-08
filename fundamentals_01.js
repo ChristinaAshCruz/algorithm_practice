@@ -18,7 +18,7 @@ for (i = -52; i <= 1066; i++) {
   console.log(i);
 }
 
-// Don't worry, be happy: create beCheerful(). Within function, console.log string "good morning!". Call it 98 times.
+// DON'T WORRY, BE HAPPY: create beCheerful(). Within function, console.log string "good morning!". Call it 98 times.
 function beCheerful(amount) {
   // created function with amount of times called as the parameter
   for (i = 0; i <= amount; i++) {
@@ -29,7 +29,7 @@ function beCheerful(amount) {
 // calling beCheerful() with amount of times needed as the argument
 beCheerful(98);
 
-// Multiples of 3, but not all: using a FOR loop, print mulitples of 3 from -300 to 0. Skip -3 and -6.
+// MULTIPLES OF 3, but not all: using a FOR loop, print mulitples of 3 from -300 to 0. Skip -3 and -6.
 for (i = -300; i <= 0; i++) {
   // made my starting point at -300 and had the loop go on until it was equal 0. I also had the loop increment by 1 so that it would run the if conditional against every integer.
   if (i % 3 == 0 && i != -3 && i != -6) {
@@ -39,4 +39,16 @@ for (i = -300; i <= 0; i++) {
     console.log(i);
     // then it will log that integer in the console
   }
+}
+
+// PRINTING INTEGERS WITH WHILE
+// Print integers from 2000 - 5280, using a while
+var startingNum = 1999;
+// creating the starting point for while loop
+// since we're increasing by 1 each time, the starting point is one less.
+while (startingNum < 5280) {
+  // creating equation that increases the number
+  startingNum = startingNum + 1;
+  // printing the equation result for each loop
+  console.log(startingNum);
 }
