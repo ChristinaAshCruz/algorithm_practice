@@ -101,3 +101,40 @@ function printAndCount() {
 }
 printAndCount();
 console.log(amount);
+
+// MULTIPLES OF 6:
+// print multiples of 6-60,000 using a WHILE
+let num = 0;
+// made num the starting point for while loop
+while (num <= 60000) {
+  // while num is less than or equal to 60000
+  if (num % 6 == 0) {
+    // if num is divisible by 6 it will log num and add 1 afterwards
+    console.log(num);
+    num += 1;
+  } else {
+    // if num is not a multiple of 6, it will only add 1 to num
+    num += 1;
+  }
+}
+
+// CODING THE DOJO WAY:
+// Print integers 1 to 100. If divisible by 5, print "Coding" instead. If by 10, also print " Dojo".
+// made starting point at 1
+var num = 1;
+// while num is less than or equal to 100...
+while (num <= 100) {
+  // if num is divisible by 5 AND divisible by 10, it will print "Coding Dojo" and increase num by 1
+  if (num % 5 == 0 && num % 10 == 0) {
+    console.log("Coding Dojo");
+    num += 1;
+    // if num is ONLY divisible by 5, it will print "Coding" and increase num by 1
+  } else if (num % 5 == 0) {
+    console.log("Coding");
+    num += 1;
+    // if none of the previous conditionals result as true, then it will print num and increase num by 1
+  } else {
+    console.log(num);
+    num += 1;
+  }
+}
