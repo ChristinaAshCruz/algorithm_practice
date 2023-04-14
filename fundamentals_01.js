@@ -138,3 +138,39 @@ while (num <= 100) {
     num += 1;
   }
 }
+
+// WHAT DO YOU KNOW?
+// Your function will be given an input parameter incoming. Please console.log this value.
+function log(incoming) {
+  console.log(incoming);
+}
+
+log("Hello there");
+log(24);
+
+// WHOA, THAT SUCKER'S HUGE...
+// Add odd integers from -300,000 to 300,000
+// console.log the final sum.
+// Is there a shortcut?
+
+// creating a for loop and starting it at -300000 and looping until i = 300000 and incrementing by 1 each time
+var num = -5;
+var limit = 10;
+let numList = [];
+
+while (num < limit) {
+  if (num % 2 != 0) {
+    num++;
+  } else {
+    num++;
+    numList.push(num);
+  }
+}
+console.log(numList);
+var sum = 0;
+for (let i = 0; i < numList.length; i++) {
+  sum += numList[i];
+}
+console.log(sum);
+
+//
