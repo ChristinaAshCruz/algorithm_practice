@@ -40,4 +40,25 @@ class LinkedList {
     this.head = new_node;
     return this;
   }
+
+  // ITERATING THROUGH LINKED LISTS
+  // how can we track data throughout our nodes?
+  // we use our 'runner'
+  // our runner performs similarly as 'i' in our for loops
+  // a for loop will not work here since we don't know how many nodes are in our list --> use a while loop instead!
+
+  findSum() {
+    //We first have to tell our train attendant that we want them to start at the front of the train
+    let runner = this.head;
+    let sum = 0;
+    //Since a Linked List does not know how many nodes is within it, we will not be able to use a for loop to             iterate, instead we'll use a while
+    //Also we need to tell them when to stop otherwise they will just run off the end of the train
+    while (runner !== null) {
+      //Since the runner is set to the current node, its value will be equal to the value of the node they                 are currently on
+      sum += runner.data;
+      //Tell our attendant to move to the next car
+      runner = runner.next;
+    }
+    return sum;
+  }
 }
