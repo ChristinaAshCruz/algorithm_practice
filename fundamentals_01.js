@@ -173,4 +173,49 @@ for (let i = 0; i < numList.length; i++) {
 }
 console.log(sum);
 
-//
+// COUNTDOWN BY FOURS
+// Log positive numbers starting at 2016, counting down by fours (exclude 0), without a FOR loop.
+
+// since we cannot use a for loop, we'll use a WHILE loop instead
+// loop: while our startNum = 2016 is greater than 0, we'll print every 4th number
+var num = 2016;
+while (num > 0) {
+  if (num % 4 == 0 && num != 0) {
+    console.log(num);
+    num--;
+  } else {
+    num--;
+  }
+}
+
+// FLEXIBLE COUNTDOW
+// Based on earlier “Countdown by Fours”, given lowNum, highNum, mult, print multiples of mult from highNum down to lowNum, using a FOR. For (2,9,3), print 9 6 3 (on successive lines).
+
+// Since we're passing through multiple arguments to our equation, we'll need to make a new function
+function flexCountdown(lowNum, highNum, mult) {
+  // while the highNum is greater than the lowNum
+  while (highNum > lowNum) {
+    // if the highNum is a multiple of mult
+    if (highNum % mult == 0) {
+      // print current highNum
+      console.log(highNum);
+      // decrement by 1 to continue through the loop
+      highNum--;
+    } else {
+      // if not divisible by the mult, decrement by 1
+      highNum--;
+    }
+  }
+}
+
+flexCountdown(2, 9, 3);
+flexCountdown(2, 103, 3);
+
+// THE FINAL COUNTDOWN
+// This is based on “Flexible Countdown”. The parameter names are not as helpful, but the problem is essentially identical; don’t be thrown off!
+
+// Given 4 parameters (param1,param2,param3,param4)
+
+// print the multiples of param1, starting at param2 and extending to param3.
+
+// One exception: if a multiple is equal to param4, then skip (don’t print) it. Do this using a WHILE. Given (3,5,17,9), print 6,12,15 (which are all of the multiples of 3 between 5 and 17, and excluding the value 9).
