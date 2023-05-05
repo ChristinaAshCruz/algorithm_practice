@@ -175,4 +175,4 @@ function celciusToFahrenheit(cDegrees) {
   return cDegrees + "°C = " + fahrenheit.toFixed() + "°F";
 }
 
-console.log(celciusToFahrenheit(26.67));
+console.log(celciusToFahrenheit(26.67));\
