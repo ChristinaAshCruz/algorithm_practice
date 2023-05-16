@@ -157,9 +157,12 @@ console.log(incrementTheSeconds(arr1))
 function previousLengths(arr){
   // we need to write a for loop that will run through the entire array
   for(let i = 0; i< arr.length; i++){
+    // if i equates to 0...
     if(i === 0){
+      // we want to set that index value to 0 
       arr[i] = 0;
     } else {
+      // if it doesn't equate to 0
       let newLength = arr[i-1].length
       arr[i] = newLength;
     }
@@ -171,3 +174,137 @@ let arr1 = ["sapphire", "jungle", "blossom", "whisper", "glitter"];
 let arr2 = previousLengths(arr1)
 console.log(arr2)
 
+// ADDS SEVEN TO MOST
+// Build a function that accepts an array. Return a new array with all values except first, adding 7 to each. Do not alter the original array.
+
+function addsSevenToMost(arr){
+  let newArray = []
+  // first, we are going to need to make a loop that will run through the array given
+  for(let i = 0; i<arr.length; i++){
+    // if i is not the first value
+    if (i != 0){
+      // next we need to push this value to the new array
+      newArray.push(arr[i])
+    }
+  }
+  // after the loop is finished, we also need to add a value of 7 to the end of the new array
+  newArray.push(7)
+  return newArray
+}
+
+const arr1 = [-1, 3, 5, -5];
+console.log(addsSevenToMost(arr1))
+
+// REVERSE ARRAY
+// Given array, write a function to reverse values, in-place. Example: reverse([3,1,6,4,2]) returns same array, containing [2,4,6,1,3].
+
+function reverseArray(arr){
+  // we will need to variables: one to hold the new array values and one that will be our starting point for our reverse loop
+  let newArray = []
+  // our reverse loops needs to start at the end of our array. We subtract 1 since array start at an index of 0
+  let i = arr.length-1
+  // let's create an array that will run through an array backwards
+  // we also need i to decrease by 1 until it equates to -1, since we want to include the index of 0
+  while(i>-1){
+
+      newArray.push(arr[i])
+      i--
+  }
+  return newArray
+}
+const arr1 = [-1, 3, 5, -5];
+console.log(reverseArray(arr1))
+
+// OUTLOOK: NEGATIVE 
+// Given an array, create and return a new one containing all the values of the provided array, made negative.
+
+function outlookNegative(arr){
+  let newArray = []
+
+  for(let i = 0; i <arr.length; i++){
+    if(arr[i]<0){
+      let tempVal = 0;
+      tempVal = arr[i] * -1
+      newArray.push(tempVal)
+    } else {
+      let tempVal = 0;
+      tempVal = arr[i] * -1
+      newArray.push(tempVal)
+    }
+  }
+  return newArray
+}
+
+const arr1 = [-1, 3, 5, -5];
+console.log(outlookNegative(arr1))
+
+// ALWAYS HUNGRY 
+// Create a function that accepts an array, and prints "yummy" each time one of the values is equal to "food". If no array elements are "food", then print "I'm hungry" once.
+
+function alwaysHungry(arr){
+// first we need to check whether the array actually contains "food" 
+// if so...
+if(arr.includes("food")){
+  for(let i = 0; i <arr.length; i++){
+    if(arr[i] == "food"){
+      console.log("yummy")
+    } else {
+      console.log(arr[i])
+    }
+  }
+// if the array does not contain "food"
+} else {
+  console.log("I'm hungry")
+}
+}
+
+const arr1 = [-1, 3, 5, -5];
+const arr2 = [-1, "food", 5, -5];
+alwaysHungry(arr1)
+alwaysHungry(arr2)
+
+// SWAP TOWARD THE CENTER
+// Given array, swap first and last, third and third-tolast, etc. Input[true,42,"Ada",2,"pizza"] becomes ["pizza",42,"Ada",2,true].  Change [1,2,3,4,5,6] to [6,2,4,3,5,1].
+
+function swapToCenter(arr){
+  if(arr.length > 4){
+    let tempValStart = arr[0]
+    let tempValEnd = arr[arr.length-1]
+    arr[0] = tempValEnd
+    arr[arr.length-1] = tempValStart
+
+    let tempValThird = arr[2]
+    let tempValThirdToLast = arr[arr.length-3]
+    arr[2] = tempValThirdToLast
+    arr[arr.length-3] = tempValThird
+
+    return arr
+  }
+  if(arr.length <= 4){
+     let tempValStart = arr[0]
+    let tempValEnd = arr[arr.length-1]
+    arr[0] = tempValEnd
+    arr[arr.length-1] = tempValStart
+    return arr
+  }
+}
+
+const arr1 = [1,2,3,4,5,6]
+const arr2 = [true,42,"Ada",2,"pizza"] 
+console.log(swapToCenter(arr1))
+console.log(swapToCenter(arr2))
+
+// SCALE THE ARRAY
+// Given array arr and number num, multiply each arr value by num, and return the changed arr.
+
+function scaleArray(arr, num){
+  let newArray = []
+  for(let i = 0; i<arr.length; i++){
+    let newVal = arr[i] * num
+    newArray.push(newVal)
+  }
+  return newArray
+}
+
+const arr1 = [1,2,3,4,5,6]
+console.log(scaleArray(arr1, 4))
