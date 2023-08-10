@@ -80,3 +80,43 @@ function whatHappensToday() {
 let todayOutcome = whatHappensToday();
 // printing that outcome into a statement in our console
 console.log("Today's outcome: " + todayOutcome);
+
+// WHAT REALLY HAPPENED?
+// Kyle (smarter than Kenny) notes that the chance of one disaster should be unrelated to the chance of another. Change whatHappensToday() function to create whatReallyHappensToday(). In this new function test for each disaster independently, instead of assuming exactly one disaster will happen. In other words, with this new function, all five might occur today – or none. Maybe Kenny will survive!
+
+// first, we need to define the probabilities of each disaster
+function whatReallyHappensToday() {
+  // list of disaster types
+  const disasters = ["earthquake", "tsunami", "volcano", "blizzard", "meteor"];
+  // list of probabilities
+  const probabilities = [0.1, 0.15, , 0.2, 0.25, 0.3];
+
+  //today's results
+  let todaysResults = [];
+
+  // creating a for loop that goes through the list of disasters
+  for (let i = 0; i < disasters.length; i++) {
+    // creates a new variable for each value in the loop
+    let randomNum = Math.random();
+    // now, we compare each random num (value between 0 and 1) and checks whether it is greater or equal to the the value in the list of probabilities
+    if (randomNum >= probabilities[i]) {
+      // if it is, we are going to print that random num value to the console to check whether the function is working correctly
+      console.log(randomNum);
+      // we are also going to push the value (index of i) in the list of disasters to the todaysResults list
+      todaysResults.push(disasters[i]);
+    }
+  }
+
+  // after the for loop is finished, we are going to check on the list of todaysResults and check whether any values were added
+  // if there are no values added, we are going to print "No crazy weather today" to the console
+  if (todaysResults.length == 0) {
+    return "No crazy weather today!";
+  } else {
+    // if there are values in the todaysResults list, we are going to print this statement to the console
+    return `Today's weather: ${todaysResults}`;
+  }
+
+  // we are using return instead of console.log since its noting the end of the whatReallyHappenedToday() function
+}
+
+console.log(whatReallyHappensToday());
