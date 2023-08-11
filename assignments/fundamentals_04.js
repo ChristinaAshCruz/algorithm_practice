@@ -120,3 +120,29 @@ function whatReallyHappensToday() {
 }
 
 console.log(whatReallyHappensToday());
+
+// SOARING IQ
+
+// Your time at the Dojo will definitely make you smarter! Let’s say a new Dojo student, Bogdan entered with a modest IQ of 101. Let’s say that during a 14-week bootcamp, his IQ rose by .01 on the first day, then went up by an additional .02 on the second day, then up by .03 more on the third day, etc. all the way until increasing by .98 on his 98th day (the end of 14 full weeks). What is Bogdan’s final IQ?
+
+// dojo student -> has IQ = 101
+// 14wk bootcamp
+// IQ increases to 101.1 (on 1st day) and an ADDITIONAL .02 on the 2nd day
+// then increases to .98 on his 98th day (end of 14 weeks)
+
+// write out function
+function soaringIQ() {
+  // creating a variable for the amount of days the bootcamp will last
+  // we'll be using const since this value will not be changed/manipulated throughout the function
+  const bootcampTotalDays = 2;
+  let bogdanIQ = 101;
+  // let's now create a for loop that loops through the same amount of days the bootcamp will last
+  for (let i = 0; i <= bootcampTotalDays; i++) {
+    // for each time we run the loop, Bogdan's IQ is going to increase by .01
+    bogdanIQ += 0.01;
+  }
+  // after the loop, return Bogdan's final IQ
+  return bogdanIQ;
+}
+
+console.log("Bogdan's final IQ:" + soaringIQ());
