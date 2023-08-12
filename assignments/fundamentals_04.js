@@ -146,3 +146,52 @@ function soaringIQ() {
 }
 
 console.log("Bogdan's final IQ:" + soaringIQ());
+
+// LETTER GRADE
+
+// Mr. Cerise teaches high school math. Write a function that assigns and prints a letter grade, given an integer representing a score from 0 to 100? Those getting 90+ get an ‘A’, 80-89 earn ‘B’, 70-79 is a ‘C’, 60-69 should get a ‘D’, and lower than 60 receive ‘F’. For example, given 88, you should log "Score: 88. Grade: B". Given the score 61, log the string "Score: 61. Grade: D".
+
+// write function that prints letter grade
+// function is given an integer
+// that int represents score from 0-100
+
+//A: 90+
+//B: 80-89
+//C: 70-79
+//D:60-69
+//F:59 and below
+
+// lets establish a new function named letterGrade that passes in the given score as a parameter
+function letterGrade(score) {
+  // for this function we'll be using a switch case
+  // for the switch case to work, we'll need to state 'true' as the switch's expression
+  switch (true) {
+    // each case will check whether the score falls within a value range
+    case score >= 90:
+      // if true, it will return the given statement along with the letter grade
+      return `Score: ${score}, Grade: A`;
+      // and break to end the case instructions and exits the case enitrely
+      break;
+    // we will repeat this method for each score value range
+    case score <= 89 && score >= 80:
+      return `Score: ${score}, Grade: B`;
+      break;
+    case score <= 79 && score >= 70:
+      return `Score: ${score}, Grade: C`;
+      break;
+    case score <= 69 && score >= 60:
+      return `Score: ${score}, Grade: D`;
+      break;
+    case score <= 59:
+      return `Score: ${score}, Grade: F`;
+    // At the end of our switch case, we'll end with a default case, in case there are any scores given that do not fall within our score ranges or include values that are undefined
+    default:
+      return "Unknown grade";
+  }
+}
+
+console.log(letterGrade(91));
+console.log(letterGrade(85));
+console.log(letterGrade(75));
+console.log(letterGrade(65));
+console.log(letterGrade(40));
