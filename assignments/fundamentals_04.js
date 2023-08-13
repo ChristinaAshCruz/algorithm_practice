@@ -195,3 +195,90 @@ console.log(letterGrade(85));
 console.log(letterGrade(75));
 console.log(letterGrade(65));
 console.log(letterGrade(40));
+
+// MORE ACCURATE GRADES
+
+// For an additional challenge, add ‘-’ signs to scores in the bottom two percent of A, B, C and D scores, and “+” signs to the top two percent of B, C and D scores (sorry, Mr. Cerise never gives an A+). Given 88, console.log "Score: 88. Grade: B+". Given 61, log "Score: 61. Grade: D-" .
+
+// function moreAccurateGrades(score) {
+//   switch (true) {
+//     case score >= 90:
+//       if (score - 90 <= 2) {
+//         return `Score: ${score}, Grade: A-`;
+//       } else if (score - 100 <= 2) {
+//         return `Score: ${score}, Grade: A+`;
+//       } else {
+//         return `Score: ${score}, Grade: A`;
+//       }
+//       break;
+//   }
+// }
+
+function moreAccurateGrades(score) {
+  switch (true) {
+    // case: score is 98-100
+    case score >= 98:
+      return `Score: ${score}, Grade: A+`;
+      break;
+    // case: score is 93-97
+    case score >= 93 && score <= 97:
+      return `Score: ${score}, Grade: A`;
+      break;
+    // case: score is 90-92
+    case score >= 90 && score <= 92:
+      return `Score: ${score}, Grade: A-`;
+      break;
+    // ---------------------- //
+    // case: score is 88-90-
+    case score == 88 || score == 89:
+      return `Score: ${score}, Grade: B+`;
+      break;
+    // case: score is 83-87
+    case score >= 83 && score <= 87:
+      return `Score: ${score}, Grade: B`;
+      break;
+    // case: score is 80-82
+    case score >= 80 && score <= 82:
+      return `Score: ${score}, Grade: B-`;
+      break;
+    // ---------------------- //
+    // case: score is 78-80
+    case score == 78 || score == 79:
+      return `Score: ${score}, Grade: C+`;
+      break;
+    // case: score is 73-77
+    case score >= 73 && score <= 77:
+      return `Score: ${score}, Grade: C`;
+      break;
+    // case: score is 70-72
+    case score >= 70 && score <= 72:
+      return `Score: ${score}, Grade: C-`;
+      break;
+    // ---------------------- //
+    // case: score is 68-70
+    case score == 68 || score == 69:
+      return `Score: ${score}, Grade: D+`;
+      break;
+    // case: score is 63-67
+    case score >= 63 && score <= 67:
+      return `Score: ${score}, Grade: D`;
+      break;
+    // case: score is 60-62
+    case score >= 60 && score <= 62:
+      return `Score: ${score}, Grade: D-`;
+      break;
+    // ---------------------- //
+    // case: score is 68-70
+    case score <= 59:
+      return `Score: ${score}, Grade: F`;
+      break;
+    default:
+      return "Unknown grade";
+  }
+}
+
+console.log(moreAccurateGrades(91));
+console.log(moreAccurateGrades(85));
+console.log(moreAccurateGrades(75));
+console.log(moreAccurateGrades(65));
+console.log(moreAccurateGrades(40));
