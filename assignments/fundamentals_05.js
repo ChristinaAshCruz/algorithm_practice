@@ -43,3 +43,74 @@ function factorial(num) {
 }
 
 console.log(factorial(5));
+
+// STAR ART
+
+// info
+// text field -> 75 character limit
+// want to be able to fill it with spaces and asterisks
+// should print asterisks consecutively
+
+// Write a function drawLeftStars(num) that accepts a number and prints that many asterisks.
+function drawLeftStars(num) {
+  // first, we need to create an empty string
+  // during our for loop, the string will have asterisks added to the string and then returned at the end of our function
+  let starResult = "";
+  // then, we'll create a for loop that will add the same amount of (*) as our num value to our 'starResult' variable string
+  for (let i = 0; i < num; i++) {
+    // each time through the loop, we'll add an asterisk to the 'starResult' list
+    starResult += "*";
+  }
+  return starResult;
+}
+
+console.log(drawLeftStars(7));
+
+// Write a function drawRightStars(num) that prints 75 characters total. Stars should build from the right side. The last num characters should be asterisks; the other 75 should be spaces.
+
+function drawRightStars(num) {
+  // like the drawLeftStars functions, we'll need an empty string that will store our final result
+  // then we will return that variable at the end of our function
+  let starResult = "";
+  // we need to create a for loop that runs until 'i' reaches 75
+  // we also need to create a variable that will be the total difference between 75 and our num value
+  let difference = 75 - num;
+
+  for (let i = 0; i < difference; i++) {
+    // since we are running the for loop until we reach the value of our 'difference', we are adding spaces to our starResult
+    starResult += " ";
+  }
+
+  // we'll also need a 2nd for loop that will add the (*) portion to our 'starResult'
+  for (let i = 0; i < num; i++) {
+    starResult += "*";
+  }
+
+  // finally, we return the final string result
+  return starResult;
+}
+
+console.log(drawRightStars(70));
+
+// Write function drawCenteredStars(num) that prints 75 characters total. The stars should be centered in the 75. The middle num characters should be asterisks; the rest of the 75 spaces.
+function drawCenteredStars(num) {
+  // in order to print the asterisks in the center, we need to divide the difference in half
+  // then, we'd add that value in 'spaces' at the beginning and end of the string (that we return at the end of our function)
+  let starResult = "";
+  let differenceHalf = (75 - num) / 2;
+  // now, we need to create a for loop that loops through the amount of our difference to add our 'spaces' to our starResult string
+  for (let i = 0; i < differenceHalf; i++) {
+    starResult += " ";
+  }
+  // now we need to create another for loop that loops until we reach the value of our num
+  for (let i = 0; i < num; i++) {
+    starResult += "*";
+  }
+  // we will need to finish off our starResult with the second half of our 'spaces', so that our asterisks are in the center of our 'starResult' string
+  for (let i = 0; i < differenceHalf; i++) {
+    starResult += " ";
+  }
+  return starResult;
+}
+
+console.log(drawCenteredStars(11));
