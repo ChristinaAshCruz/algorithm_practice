@@ -140,4 +140,53 @@ function drawLeftChars(num, char) {
 
 console.log(drawLeftChars(2, "hello"));
 // drawRightChars(num,char)
+
+function drawRightChars(num, char) {
+  if (typeof char != "string") {
+    var updatedChar = char.toString();
+  } else {
+    var updatedChar = char;
+  }
+  let starResult = "";
+  let difference = 75 - num;
+  // adding in our spaces to our 'starResult'
+  for (let i = 0; i < difference; i++) {
+    starResult += " ";
+  }
+  // now, adding in our 'char' enough times until it reaches a character limit of 75
+  for (let i = 0; i < num; i++) {
+    starResult += char;
+  }
+  return starResult;
+}
+
+console.log(drawRightChars(10, "-"));
+
 // drawCenteredChars(num,char)
+function drawCenteredStars(num, char) {
+  // if it is NOT string data type, it converts the value to a string
+  if (typeof char != "string") {
+    var updatedChar = char.toString();
+  } else {
+    // if it is a string, it just places to value as 'updatedChar'
+    var updatedChar = char;
+  }
+  let starResult = "";
+  // like the previous drawCenteredChars function, we are going to create a new variable, 'differenceHalf', where we are dividing the difference between the num given and 75
+  let differenceHalf = (75 - num) / 2;
+  // for the value of 'differenceHalf', we are going to add a space first
+  for (let i = 0; i < differenceHalf; i++) {
+    starResult += " ";
+  }
+  // then we are going to add the same amount of chars as our 'num' value
+  for (let i = 0; i < num; i++) {
+    starResult += updatedChar;
+  }
+  // then we are going to add the second half of spaces to 'starResult' at the end our function, so that our chars are in the middle of the new string
+  for (let i = 0; i < differenceHalf; i++) {
+    starResult += " ";
+  }
+  return starResult;
+}
+
+console.log(drawCenteredStars(15));
