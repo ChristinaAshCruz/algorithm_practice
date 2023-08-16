@@ -114,3 +114,30 @@ function drawCenteredStars(num) {
 }
 
 console.log(drawCenteredStars(11));
+
+// CHARACTER ART
+// From the above, derive the following that accepts and draws the given characters, not just asterisks:
+
+//drawLeftChars(num,char)
+
+// for this first problem, we need to create a function that follows the same instructions as above along with checking the data type of 'char'
+function drawLeftChars(num, char) {
+  // this if/else statement checks whether 'char' is a string data type
+  if (typeof char != "string") {
+    // if it is NOT string data type, it converts the value to a string
+    var updatedChar = char.toString();
+  }
+  // if it returns false and is a string data type,
+  var updatedChar = char;
+  let starResult = "";
+  // // like before, we need a president
+  for (let i = 0; i < num; i++) {
+    // each time through the loop, we'll add an asterisk to the 'starResult' list
+    starResult += updatedChar;
+  }
+  return starResult;
+}
+
+console.log(drawLeftChars(2, "hello"));
+// drawRightChars(num,char)
+// drawCenteredChars(num,char)
