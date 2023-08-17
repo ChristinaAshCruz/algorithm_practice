@@ -9,7 +9,7 @@ function threeFives() {
   // we wll need to create a for loop that loops from 100 - 4,000,000
   for (let i = 100; i <= 4000000; i++) {
     // now we need to create an if/else statement that checks whether 'i' is divisible by 3 OR 5
-    if ((i % 3 === 0 && !i % 5 === 0) || (i % 5 === 0 && !i % 3 === 0)) {
+    if ((i % 3 === 0 || i % 5 === 0) && !(i % 3 === 0 && i % 5 === 0)) {
       finalSum += i;
     }
   }
@@ -17,3 +17,79 @@ function threeFives() {
 }
 
 console.log(threeFives());
+
+//GENERATE COIN CHANGE
+
+// Change is inevitable (especially when breaking a twenty).
+// Make generateCoinChange(cents).
+// Accept a number of American cents --> print how to represent that amount with the smallest number of coins
+
+// Common American coins are pennies (1 cent), nickels (5 cents), dimes (10 cents), and quarters (25 cents).
+
+// create a new function
+function coinChange(amount) {
+  // we need to create a list of coinValues and coinNames
+  // coinValues will be used to divide the amount, whereas we'll use coinNames to represent each type of coin in the object that we will return at the end of our function
+  let coinValues = [25, 10, 5, 1];
+  let coinNames = ["quarters", "dimes", "nickels", "pennies"];
+
+  // we're going to create an empty object to hold our result since we will be creating key-value pairs and then returning the object
+  let finalResult = {};
+
+  // now we will create a for loop that loops through the list of coinValues
+  for (let i = 0; i < coinValues.length; i++) {
+    // we will need a new variable that will hold the current coinValue and a variable that will hold the current coinName
+    let currentCoinValue = coinValues[i];
+    let currentCoinName = coinNames[i];
+    // we need to calculate the whole number that the coin value goes into our 'amount'
+    // also, we need to use Math.floor() to round down to the nearest whole number
+    let numberOfCoins = Math.floor(amount / currentCoinValue);
+
+    // now, we need to multiply the numberOfCoins by the currentCoinValue and subtract that total from our amount
+    amount -= numberOfCoins * currentCoinValue;
+    // this should leave us with the remaining change to go through the for loop until amount hits 0
+
+    // we need to add the numberOfCoins to the 'finalResult' object
+    finalResult[currentCoinName] = numberOfCoins;
+
+    // however, if the amount is indeed 0, we need to end the for loop using break
+    if (amount === 0) {
+      break;
+    }
+  }
+  return finalResult;
+}
+
+console.log(coinChange(65));
+
+// with half-dollar and dollar amounts included
+
+function coinChange(amount) {
+  let coinValues = [100, 50, 25, 10, 5, 1];
+  let coinNames = [
+    "dollars",
+    "half-dollars",
+    "quarters",
+    "dimes",
+    "nickels",
+    "pennies",
+  ];
+  let finalResult = {};
+
+  for (let i = 0; i < coinValues.length; i++) {
+    let currentCoinValue = coinValues[i];
+    let currentCoinName = coinNames[i];
+    let numberOfCoins = Math.floor(amount / currentCoinValue);
+
+    amount -= numberOfCoins * currentCoinValue;
+    if (numberOfCoins > 0) {
+      finalResult[currentCoinName] = numberOfCoins;
+    }
+    if (amount === 0) {
+      break;
+    }
+  }
+  return finalResult;
+}
+
+console.log(coinChange(65));
