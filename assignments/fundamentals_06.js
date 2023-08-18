@@ -93,3 +93,39 @@ function coinChange(amount) {
 }
 
 console.log(coinChange(65));
+
+// MESSY MATH MASHUP
+
+// Create a function messyMath(num) that will return the following sum: add all integers from 0 up to the given num, except for the following special cases of our count value:
+
+// If current count (not num) is evenly divisible by 3, don’t add to the sum; skip to the next count;
+// Otherwise, if the current count is evenly divisible by 7, include it twice in sum instead of once;
+// Regardless of the above, if the current count is exactly 1/3 of num, return -1 immediately.
+
+// For example, if given num is 4, return 7. If given num is 8, return 34. If given num is 15, return -1.
+
+function messyMath(num) {
+  // returns a sum from adding all integers from 0 to 'num'
+  var sum = 0;
+
+  // we'll need to create a for loop that runs from 0 to num
+  for (let i = 0; i <= num; i++) {
+    // if i is exactly 1/3 of num
+    if (num * (1 / 3) == i) {
+      sum = -1;
+      return sum;
+    }
+    // if i is evenly divisble by 7, add it to sum 2x
+    if (i % 7 === 0 && i % 3 != 0) {
+      sum += 2 * i;
+    }
+    // if if i is not divisible by 3
+    if (i % 3 != 0 && i % 7 != 0) {
+      // if it doesn't reach any of the previous conditions, simply add 'i' to our sum
+      sum += i;
+    }
+  }
+  return sum;
+}
+
+console.log(messyMath(8));
