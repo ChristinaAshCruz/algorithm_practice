@@ -129,3 +129,23 @@ function messyMath(num) {
 }
 
 console.log(messyMath(8));
+
+// TWELVE-BAR BLUES
+
+// Write a function that console.logs the number 1, then "chick", then "boom", then "chick", then 2, then "chick", "boom", "chick" – continuing the same cycle for each number up to (including) 12.
+
+// and repeat until it reaches 12
+function twelveBarBlues() {
+  // first we need a for loop that runs until it reaches 12
+  for (let i = 0; i <= 12; i++) {
+    console.log(i);
+    // then "chick"
+    console.log("chick");
+    // then boom
+    console.log("boom");
+    // then "chick"
+    console.log("chick");
+  }
+}
+
+twelveBarBlues();
