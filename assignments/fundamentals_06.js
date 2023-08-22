@@ -149,3 +149,39 @@ function twelveBarBlues() {
 }
 
 twelveBarBlues();
+
+// FIBONACCI
+
+// Create a function to generate Fibonacci numbers. In this famous mathematical sequence, each number is the sum of the previous two, starting with values 0 and 1. Your function should accept one argument, an index into the sequence (where 0 corresponds to the initial value, 4 corresponds to the value four later, etc).
+
+// Examples: fibonacci(0) = 0 (given), fibonacci(1) = 1 (given), fibonacci(2) = 1 (fib(0)+fib(1), or 0+1), fibonacci(3) = 2 (fib(1)+fib(2), or 1+1), fibonacci(4) = 3 (1+2), fibonacci(5) = 5 (2+3), fibonacci(6) = 8 (3+5), fibonacci(7) = 13 (5+8), etc.
+
+// create a new function that accepts an argument (index)
+function fibonacci(index) {
+  let currentSum = 0;
+  // from what we can tell from the exapmples, fibonacci(0) and fibonnacci(1) are the only ones that have given values
+  if (index == 0) {
+    return currentSum;
+  } else if (index == 1) {
+    currentSum += 1;
+    return currentSum;
+  } else {
+    // if 0 or 1 is the index, let's make the two previous values as variables for us to use further in the function
+    let previousPreviousIndex = 0;
+    let previousIndex = 1;
+
+    // now we have to create a for loop that runs until it reaches index and adds the sum of the last two index values
+    for (let i = 2; i <= index; i++) {
+      // add the previous 2 indexes together to equate to the currentSum
+      currentSum = previousIndex + previousPreviousIndex;
+      // overwrite the previousPreviousIndex as the current previousIndex
+      previousPreviousIndex = previousIndex;
+      // now overwrite the previousIndex as the currentSum
+      previousIndex = currentSum;
+    }
+
+    return `Fibonacci(${index}): ${currentSum}`;
+  }
+}
+
+console.log(fibonacci(6));
