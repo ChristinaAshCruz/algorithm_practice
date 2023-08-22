@@ -185,3 +185,34 @@ function fibonacci(index) {
 }
 
 console.log(fibonacci(6));
+
+// SUM TO ONE DIGIT
+
+// Kaitlin sees beauty in numbers, but also believes that less is more. Implement sumToOne(num) that sums a given integer’s digits repeatedly until the sum is only one digit. Return that one-digit result.
+
+// Example: sumToOne(928) returns 1, because 9+2+8 = 19, then 1+9 = 10, then 1+0 = 1.
+
+// create a function that can take in a integer as a parameter
+function sumToOne(num) {
+  // first we need to parse num and covert it to a string to separate ea. digit
+  let numString = num.toString();
+  // now we need to convert it back to integers and place the values into an array
+  let digits = numString.split("").map(Number);
+
+  // since we are adding the sum of an array, let's use the .reduce() method
+  // we'll be passing our accumulator and the current digit
+  // for each loop, we'll be adding the sum with the current digit
+  let sum = digits.reduce(
+    (accumulator, currentDigit) => accumulator + currentDigit
+  );
+
+  // now, we need to check if the sum is single digit
+  if (sum < 10) {
+    return sum;
+  } else {
+    // if we still have double digits and less than 10, we have to run the function again with our current sum as an argument
+    return sumToOne(sum);
+  }
+}
+
+console.log(sumToOne(16));
