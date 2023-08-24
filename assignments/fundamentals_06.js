@@ -216,3 +216,43 @@ function sumToOne(num) {
 }
 
 console.log(sumToOne(16));
+
+// CLOCK HAND ANGLES
+
+// Regardless of how hard a Dojo student works (and they should work hard), they need time now and then to unwind – like hands on a clock.
+
+// Traditional clocks are increasingly uncommon, but most can still read an analog clock’s hands of hours, minutes and seconds.
+
+// Create clockHandAngles(seconds) that, given a number of seconds since 12:00:00, prints angles (in degrees) of the hour, minute and second hands.
+
+// As a review, 360 degrees form a full rotation. For input of 3600 secs (equivalent to 1:00:00), print "Hour hand: 30 degs. Minute hand: 0 degs. Second hand: 0 degs." For an input parameter seconds of 119730 (which is equivalent to 9:15:30 plus 24 hours!), you should log "Hour hand: 277.745 degs. Minute hand: 93 degs. Second hand: 180 degs."
+
+function clockHandAngles(secondsTotal) {
+  // so we know that we get each hour equates to 30deg AND that each hour is 3600sec
+  let secondsinHour = 3600;
+  let degreesinHour = 360 / 12;
+
+  // our hourHand is calculated by dividing our secondsTotal by how many seconds there are in an hour
+  // then, we need to take that number and see how many times it goes into our 12-hour cycle (giving us how many hours total)
+  // then we take our hours total and multiply by how many degrees within an hour
+  let hourHand = ((secondsTotal / secondsinHour) % 12) * degreesinHour;
+
+  let secondsInMinute = 60;
+  let degreesInMinute = 360 / 60;
+
+  // similar to before, we need to calculate the secondsTotal by how many seconds there are in a minute
+  // then, we need to take that number and check how many times it goes into our 60minute cycle (giving us how many minutes) -> we use 60, since we are calculating the remainder of minutes within 1 hour
+  // then we take that remainder and multiply it by 6 (how many degrees there are in a minute)
+  let minuteHand = ((secondsTotal / secondsInMinute) % 60) * degreesInMinute;
+
+  // we need to remember that the secondHand makes a full rotation at 360degs
+  // we can find how many degrees in a second by calculating the total rotation by how many seconds
+  let degreeInSecond = 360 / 60;
+
+  let secondHand = (secondsTotal % 60) * degreeInSecond;
+  return `Hours: ${hourHand} degs. Minutes: ${minuteHand} degs. Seconds: ${secondHand} degs.`;
+}
+
+console.log(clockHandAngles(119730));
+
+console.log(((119730 / 3600) % 24) * 30);
