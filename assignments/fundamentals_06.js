@@ -256,3 +256,32 @@ function clockHandAngles(secondsTotal) {
 console.log(clockHandAngles(119730));
 
 console.log(((119730 / 3600) % 24) * 30);
+
+// IS PRIME
+
+// Return whether a given integer is prime. Prime numbers are only evenly divisible by themselves and 1. Many highly optimized solutions exist, but for now, just create one that is easy to understand and debug.
+
+function isPrime(num) {
+  // since prime numbers begin at 2, let's check wheter num is less than 2
+  // if so, return false
+  if (num < 2) {
+    return false;
+  }
+
+  // let's create a for loop that checks for how many factors our num has
+
+  for (let i = 2; i < Math.sqrt(num); i++) {
+    // if our num is divisible by anything other than our num, return false
+    if (num % i === 0) {
+      return false;
+    }
+  }
+  // if our num goes through our for loop without returning false, let's return true
+  return true;
+}
+
+console.log(isPrime(2));
+console.log(isPrime(10));
+console.log(isPrime(15));
+console.log(isPrime(1));
+console.log(isPrime(113));
