@@ -285,3 +285,16 @@ console.log(isPrime(10));
 console.log(isPrime(15));
 console.log(isPrime(1));
 console.log(isPrime(113));
+
+var twoSum = function (nums, target) {
+  // we need to take our target and subtract our nums[0] to find the remainder
+  let indicesResult = [];
+  for (let i = 0; i < nums.length; i++) {
+    let tempVal = target - nums[i];
+    if (nums.indexOf(tempVal)) {
+      indicesResult.push(nums.indexOf(tempVal));
+      indicesResult.push(i);
+      return indicesResult;
+    }
+  }
+};
