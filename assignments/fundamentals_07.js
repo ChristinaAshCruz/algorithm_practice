@@ -41,3 +41,33 @@ function sweatshirtPricing(num) {
 console.log(sweatshirtPricing(2));
 console.log(sweatshirtPricing(5));
 console.log(sweatshirtPricing(0));
+
+// CLOCK HAND ANGLES, REVISTED
+
+// Return to your previous clockHandAngles solution. Allow fractional values for input seconds, but change your implementation to print only integer values for angles (in degrees) of the various hands.
+
+// copied from last algo practice
+function clockHandAngles(secondsTotal) {
+  let secondsinHour = 3600;
+  let degreesinHour = 360 / 12;
+
+  let hourHand = ((secondsTotal / secondsinHour) % 12) * degreesinHour;
+  // rounding to the nearest integer
+  hourHand = Math.floor(hourHand);
+
+  let secondsInMinute = 60;
+  let degreesInMinute = 360 / 60;
+
+  let minuteHand = ((secondsTotal / secondsInMinute) % 60) * degreesInMinute;
+  // rounding to the nearest integer
+  minuteHand = Math.floor(minuteHand);
+
+  let degreeInSecond = 360 / 60;
+
+  let secondHand = (secondsTotal % 60) * degreeInSecond;
+  // rounding to the nearest integer
+  secondHand = Math.floor(secondHand);
+
+  return `Hours: ${hourHand} degs. Minutes: ${minuteHand} degs. Seconds: ${secondHand} degs.`;
+}
+console.log(clockHandAngles(119730));

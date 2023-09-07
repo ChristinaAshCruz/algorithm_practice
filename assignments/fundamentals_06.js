@@ -255,8 +255,6 @@ function clockHandAngles(secondsTotal) {
 
 console.log(clockHandAngles(119730));
 
-console.log(((119730 / 3600) % 24) * 30);
-
 // IS PRIME
 
 // Return whether a given integer is prime. Prime numbers are only evenly divisible by themselves and 1. Many highly optimized solutions exist, but for now, just create one that is easy to understand and debug.
