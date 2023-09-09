@@ -26,7 +26,32 @@ function extractDigit(num, digitNum) {
 
 console.log(extractDigit(1234, 2));
 console.log(extractDigit(45789, 5));
-console.log(extractDigit(1824, 0));
+console.log(extractDigit(1824, -1));
+
 // Second: handle negative digitNum values, where -1 represents tenths digit (0.x), -2 represents hundredths digit (0.0x), etc. Given (123.45,-1), return 4.
 
+function extractDigit2(num, digitNum) {
+  let array = num.toString().split("").map(Number);
+
+  if (digitNum <= -1) {
+    // we'll need to find our numeralValue going from right to left instead of how we did previously
+    let numNoRemainder = Math.floor(num);
+    // we'll need to find out how long our array is before it reaches the decimal point
+    let preDecimalLength = numNoRemainder.toString().length;
+    let index = array.length - preDecimalLength - digitNum;
+    return array[index];
+  } else {
+    let index = digitNum - 1;
+    if (index >= 0 && index < array.length) {
+      let numeralValue = array[index];
+      return numeralValue;
+    } else {
+      return 0;
+    }
+  }
+}
+
+console.log(extractDigit2(32715.5892, -1));
+console.log(extractDigit2(1234, 2));
+console.log(extractDigit2(45789, 5));
 // Third: handle negative num values as well, doing what you think is appropriate.
