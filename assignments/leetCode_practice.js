@@ -77,3 +77,55 @@ function romanToInt(s) {
 console.log(romanToInt("III"));
 console.log(romanToInt("LVIII"));
 console.log(romanToInt("MCMXCIV"));
+
+// LONGEST COMMON PREFIX
+
+// Write a function to find the longest common prefix string amongst an array of strings.
+
+// If there is no common prefix, return an empty string "".
+
+// Example 1:
+
+// Input: strs = ["flower","flow","flight"]
+// Output: "fl"
+// Example 2:
+
+// Input: strs = ["dog","racecar","car"]
+// Output: ""
+// Explanation: There is no common prefix among the input strings.
+
+// Constraints:
+
+// 1 <= strs.length <= 200
+// 0 <= strs[i].length <= 200
+// strs[i] consists of only lowercase English letters.
+
+function longestCommonPrefix(strs) {
+  if (strs.length === 0) {
+    return "";
+  }
+
+  // we will also need to create a for loop that will run the full length of our strs[0] string
+  for (let i = 0; i < strs[0].length; i++) {
+    // during our for loop, we will need to compare strs[0][i] to the next string index of i
+    for (
+      let nextStringIndex = 1;
+      nextStringIndex < strs.length;
+      nextStringIndex++
+    ) {
+      // if i is greater than the next word's length OR if the next word's current char doesn't match the strs[0][i]...
+      if (
+        i >= strs[nextStringIndex].length ||
+        strs[nextStringIndex][i] !== strs[0][i]
+      ) {
+        // we'll return our current reference string from the starting point of 0 until the endpoint of our current 'i' value
+        return strs[0].substring(0, i);
+      }
+    }
+  }
+
+  // if we haven't returned inside the loop, that means that the entire strs[0] string is a common prefix, therefore we will return strs[0]
+  return strs[0];
+}
+
+console.log(longestCommonPrefix(["flower", "flow", "flight"]));
